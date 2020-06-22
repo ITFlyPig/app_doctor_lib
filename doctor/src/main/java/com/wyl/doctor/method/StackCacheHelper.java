@@ -52,11 +52,11 @@ public class StackCacheHelper {
                     MethodBean topBean = MethodRecordStack.getInstance().pop(bean.threadInfo.id, bean.classFullName, bean.methodName, bean.methodSignature, bean.endTime);
                     if (topBean == null) return;
 //                    Log.d(TAG, "HandleStackHelper--handle: json数据：" + JSON.toJSONString(bean));
-                    Log.d(TAG, "endtime--handle: 结束时间：" + bean.endTime);
+//                    Log.d(TAG, "endtime--handle: 结束时间：" + bean.endTime);
                     //将其放到内存缓存中
                     if (topBean.type == LogType.ALL_PATH) {
                         //直接使用socket传输的日志
-                        Log.d(TAG, "HandleStackHelper--handle: 出栈，取到ALL_PATH类型的记录");
+//                        Log.d(TAG, "HandleStackHelper--handle: 出栈，取到ALL_PATH类型的记录");
                         UploadUtil.socketUploadNow(new UploadBean(LogType.ALL_PATH ,topBean));
                     } else {
                         //需要写入到文件的日志
@@ -70,7 +70,7 @@ public class StackCacheHelper {
                 if (msg.obj instanceof MethodBean) {
                     MethodBean bean = (MethodBean) msg.obj;
                     if (MethodRecordStack.getInstance().isTopAndroidLib(bean.threadInfo.id)) return;
-                    Log.d(TAG, "tttttt--handle: 入栈：" + bean.classFullName + ":" + bean.methodName + ":" + bean.methodSignature);
+//                    Log.d(TAG, "tttttt--handle: 入栈：" + bean.classFullName + ":" + bean.methodName + ":" + bean.methodSignature);
                     MethodRecordStack.getInstance().push(bean);
                 }
                 break;

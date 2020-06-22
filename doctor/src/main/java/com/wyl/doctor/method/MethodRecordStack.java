@@ -99,7 +99,7 @@ public class MethodRecordStack {
             bean = stack.pop();
             bean.endTime = endTime;
             //记录结束时间
-            Log.d(TAG, "tttttt--pop: 出栈" + bean.classFullName + ":" + bean.methodName + ":" + bean.methodSignature);
+//            Log.d(TAG, "tttttt--pop: 出栈" + bean.classFullName + ":" + bean.methodName + ":" + bean.methodSignature);
         } else {
             bean = null;
         }

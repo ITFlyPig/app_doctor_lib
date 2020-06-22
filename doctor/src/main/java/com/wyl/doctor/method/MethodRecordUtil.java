@@ -27,6 +27,7 @@ public class MethodRecordUtil {
         }
 
         Log.d(TAG, "MethodRecordUtil--onStart: " + classFullName + ":" + methodName);
+        long startTime = System.currentTimeMillis();
 
         //记录方法的相关信息
         MethodBean methodBean = new MethodBean();
@@ -38,7 +39,7 @@ public class MethodRecordUtil {
         //记录方法的参数
 //        methodBean.args = args;
         //记录开始时间
-        methodBean.startTime = System.currentTimeMillis();
+        methodBean.startTime = startTime;
         methodBean.methodSignature = methodSignature;
         //记录方法所属线程信息
         Thread curThread = Thread.currentThread();
@@ -74,12 +75,13 @@ public class MethodRecordUtil {
      */
     public static void onEnd(String classFullName, String methodName, String methodSignature) {
         Log.d(TAG, "MethodRecordUtil--onEnd: " + classFullName + ":" + methodName);
+        long endTime = System.currentTimeMillis();
         Thread curThread = Thread.currentThread();
         MethodBean endCall = new MethodBean();
         endCall.classFullName = classFullName;
         endCall.methodName = methodName;
         endCall.methodSignature = methodSignature;
-        endCall.endTime = System.currentTimeMillis();
+        endCall.endTime = endTime;
         endCall.threadInfo = new ThreadInfo(curThread.getName(), curThread.getId());
         stackHelper.sendPop(endCall);
     }

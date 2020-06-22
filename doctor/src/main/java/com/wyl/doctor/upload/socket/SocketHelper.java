@@ -70,9 +70,12 @@ public class SocketHelper {
 
             ByteBuffer buffer = ByteBuffer.allocate(4 + 4 + bytes.length);
             //写入数据的类型
+            Log.d(TAG, "SocketHelper--write: 开始写入数据类型：" + type);
             buffer.putInt(type);
             //写入数据的大小
+            Log.d(TAG, "SocketHelper--write: 开始写入数据大小：" + bytes.length);
             buffer.putInt(bytes.length);
+            Log.d(TAG, "SocketHelper--write: 开始写入数据：" + bytes.length);
             //写入数据
             buffer.put(bytes);
             //写入到socket

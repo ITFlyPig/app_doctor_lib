@@ -1,7 +1,5 @@
 package com.wyl.doctor.unchanged;
 
-import androidx.annotation.NonNull;
-
 import com.wyl.doctor.utils.TimeUtil;
 
 import java.io.Serializable;
@@ -28,7 +26,6 @@ public class MethodBean extends BaseLogBean implements Serializable {
 
     public ThreadInfo threadInfo;
 
-    @NonNull
     @Override
     public String toString() {
         return "[name = " + methodName + "] " +
