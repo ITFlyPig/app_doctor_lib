@@ -1,2 +1,2 @@
 rootProject.name='AppDoctorLib'
-include ':app'
+include ':app', ':doctor'
